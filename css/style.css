@@ -1,89 +1,91 @@
-/* =========================
-   RESET
-========================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
+/* BASE */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Times New Roman", Times, serif;
-  background: #ffffff;
+  font-family: "Times", "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  background: #fff;
+  color: #000;
+  cursor: crosshair;
+}
+
+/* LINKS (NO AZULES) */
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:visited {
   color: #000;
 }
 
-/* =========================
-   HEADER / TEXTO
-========================= */
+/* HEADER */
 .site-header {
-  padding: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.4rem;
+  z-index: 10;
 }
 
-.site-header h1 {
-  margin: 0;
-  font-size: 32px;
-  font-weight: normal;
-}
-
+/* TEXTO */
 .site-content {
-  padding: 0 24px;
-  max-width: 1200px;
+  padding: 2.2rem 0.4rem 0 0.4rem;
+  max-width: 45rem;
 }
 
-.home-text p {
-  max-width: 700px;
-  line-height: 1.45;
-  font-size: 18px;
+.text p {
+  margin: 0 0 0.8rem 0;
 }
 
-/* =========================
-   GALERÍA
-========================= */
-.home-footer-gallery {
-  padding: 24px;
-}
-
-.home-footer-track {
+/* GALERÍA FIJA ABAJO */
+.gallery {
+  position: fixed;
+  bottom: 1.6rem;
+  left: 0;
   width: 100%;
+  padding: 0 0.4rem;
+}
+
+.custom-gallery {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 0.4rem;
 }
 
-.gallery-item {
-  width: 100%;
-  height: auto;
-  display: block;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-drag: none;
-
-  /* B/N por defecto */
-  filter: grayscale(100%);
-  transition: filter 0.25s ease;
-}
-
-/* Hover SOLO en desktop */
-@media (hover: hover) and (pointer: fine) {
-  .gallery-item:hover {
-    filter: grayscale(0%);
+@media (max-width: 768px) {
+  .custom-gallery {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
-/* Vídeos */
-video.gallery-item {
+/* ITEMS */
+.gallery-item {
   width: 100%;
-  height: auto;
   display: block;
+  filter: grayscale(100%);
+  mix-blend-mode: darken;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* =========================
-   LIGHTBOX
-========================= */
+/* Hover SOLO desktop */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover {
+    filter: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/* FOOTER */
+.site-footer {
+  position: fixed;
+  bottom: 0.4rem;
+  left: 0.4rem;
+}
+
+/* LIGHTBOX */
 .custom-lightbox {
   position: fixed;
   inset: 0;
@@ -91,104 +93,41 @@ video.gallery-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .custom-lightbox[hidden] {
   display: none;
 }
 
-.lb-header {
-  position: absolute;
-  top: 20px;
-  left: 24px;
-  color: #fff;
-  font-size: 18px;
-}
-
-.lb-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.custom-lightbox img {
   max-width: 80vw;
-  max-height: 75vh;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
-.lb-content img,
-.lb-content video {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-}
-
-/* Controles */
+/* CONTROLES */
 .lb-prev,
 .lb-next,
 .lb-close {
-  position: absolute;
+  position: fixed;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.lb-close {
-  top: 20px;
-  right: 24px;
 }
 
 .lb-prev {
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 10vw;
+  top: 52%;
 }
 
 .lb-next {
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 10vw;
+  top: 52%;
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px) {
-
-  /* MISMO nº de columnas que desktop */
-  .home-footer-track {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
-  }
-
-  .lb-content {
-    max-width: 90vw;
-    max-height: 80vh;
-  }
-
-  /* Botones más abajo */
-  .lb-prev,
-  .lb-next {
-    top: auto;
-    bottom: 25vh;
-    transform: none;
-  }
-
-  .lb-prev {
-    left: 20px;
-  }
-
-  .lb-next {
-    right: 20px;
-  }
-}
-
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-  padding: 24px;
-  font-size: 14px;
+.lb-close {
+  top: 0.4rem;
+  right: 0.4rem;
 }

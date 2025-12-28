@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carlota Mojica</title>
-  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <h1>Carlota Mojica</h1>
-  </header>
+<!-- HEADER FIJO -->
+<header class="site-header">
+  Carlota Mojica
+</header>
 
-  <!-- CONTENIDO -->
-  <main class="site-content">
-    <div class="home-grid">
+<!-- TEXTO -->
+<main class="site-content">
+  <div class="text">
+    <p>
+      Graphic and visual designer based in Málaga (Spain). My multidisciplinary work
+      focuses mainly on art direction, brand identity development, editorial design and
+      web design for artists, companies, organizations, collectives and individuals.
+      Alongside my client work, I also develop personal projects, driven by a continuous
+      interest in visual experimentation.
+    </p>
 
-      <div class="home-text">
-        <p>
-          Graphic and visual designer based in Málaga (Spain). My multidisciplinary work focuses mainly on art direction, brand identity development, editorial design and web design for artists, companies, organizations, collectives and individuals.
-        </p>
+    <p>
+      I’m currently part of the team at
+      <a href="https://www.brida.es/" target="_blank">bRIDA</a>,
+      a brand strategy and design studio based in Málaga.
+    </p>
 
-        <p>
-          I’m currently part of the team at
-          <a href="https://www.brida.es/" target="_blank">bRIDA</a>,
-          a brand strategy and design studio based in Málaga.
-        </p>
+    <p>
+      I also occasionally take on freelance commissions that allow for a more personal
+      and exploratory approach to design.
+    </p>
 
-        <p>
-          I also occasionally take on freelance commissions that allow for a more personal and exploratory approach to design.
-        </p>
+    <p>
+      For collaborations or inquiries, feel free to reach out at
+      <a href="mailto:info@carlotamojica.work">info@carlotamojica.work</a>
+    </p>
 
-        <p>
-          For collaborations or inquiries, feel free to reach out at
-          <a href="mailto:info@carlotamojica.work">info@carlotamojica.work</a>
-        </p>
+    <p>
+      <a href="#">Instagram</a>,
+      <a href="#">Are.na</a>,
+      <a href="#">LinkedIn</a>
+    </p>
+  </div>
+</main>
 
-        <p>
-          <a href="https://www.instagram.com/carlota.mojica" target="_blank">Instagram</a>,
-          <a href="https://www.are.na/carlota-mojica" target="_blank">Are.na</a>,
-          <a href="https://www.linkedin.com/in/carlota-mojica/" target="_blank">LinkedIn</a>
-        </p>
-      </div>
-
-      <div class="home-empty"></div>
-
-    </div>
-  </main>
-
-  <!-- BLOQUE INFERIOR -->
-  <div class="site-bottom">
-
-<!-- GALERÍA -->
-<div class="home-footer-gallery">
-  <div class="custom-gallery home-footer-track">
-
+<section class="gallery">
+  <div class="custom-gallery">
     <!-- SILENT GROWTH SERIES -->
     <video
       class="gallery-item"
@@ -250,34 +245,26 @@
       class="gallery-item"
       src="https://res.cloudinary.com/dudqbkshm/image/upload/v1766944141/MOTHERS_OF_MODERN_ART_01_on16fi.jpg" 
       alt="">
-
   </div>
-</div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      © <span id="year"></span>
-    </footer>
+<!-- FOOTER -->
+<footer class="site-footer">
+  © <span id="year"></span>
+</footer>
 
-  </div>
-
-  <!-- LIGHTBOX -->
+<!-- LIGHTBOX -->
 <div class="custom-lightbox" hidden>
-  <div class="lb-header">Carlota Mojica</div>
-
-  <div class="lb-content"></div>
-
+  <img alt="">
   <div class="lb-prev">Previous</div>
   <div class="lb-next">Next</div>
   <div class="lb-close">Close</div>
 </div>
 
-  <!-- JS -->
-  <script src="/js/gallery.js"></script>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script src="js/gallery.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
