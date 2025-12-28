@@ -6,6 +6,8 @@ const btnNext = document.querySelector(".lb-next");
 const btnClose = document.querySelector(".lb-close");
 
 let currentIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
 function openLightbox(index) {
   currentIndex = index;
@@ -31,6 +33,7 @@ function renderItem() {
     video.loop = true;
     video.muted = true;
     video.playsInline = true;
+    video.controls = false;
     content.appendChild(video);
   } else {
     const img = document.createElement("img");
@@ -55,9 +58,31 @@ btnNext.addEventListener("click", () => {
 
 btnClose.addEventListener("click", closeLightbox);
 
+/* Teclado desktop */
 document.addEventListener("keydown", (e) => {
   if (lightbox.hidden) return;
   if (e.key === "Escape") closeLightbox();
   if (e.key === "ArrowRight") btnNext.click();
   if (e.key === "ArrowLeft") btnPrev.click();
 });
+
+/* Swipe móvil */
+lightbox.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    btnNext.click();
+  } else {
+    btnPrev.click();
+  }
+}

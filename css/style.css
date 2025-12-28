@@ -1,5 +1,5 @@
 /* =========================
-   RESET BÁSICO (SUAVE)
+   RESET
 ========================= */
 *,
 *::before,
@@ -7,11 +7,12 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Times New Roman", Times, serif;
-  background: #fff;
+  background: #ffffff;
   color: #000;
 }
 
@@ -47,8 +48,9 @@ html, body {
 }
 
 .home-footer-track {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* MISMAS columnas en desktop y móvil */
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
 }
 
@@ -59,24 +61,24 @@ html, body {
   cursor: pointer;
   user-select: none;
   -webkit-user-drag: none;
-}
 
-/* Vídeos */
-.gallery-item video,
-video.gallery-item {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Hover B/N */
-.gallery-item {
+  /* B/N por defecto */
   filter: grayscale(100%);
   transition: filter 0.25s ease;
 }
 
-.gallery-item:hover {
-  filter: grayscale(0%);
+/* Hover SOLO en desktop */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover {
+    filter: grayscale(0%);
+  }
+}
+
+/* Vídeos */
+video.gallery-item {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* =========================
@@ -87,7 +89,6 @@ video.gallery-item {
   inset: 0;
   background: #000;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
@@ -106,11 +107,11 @@ video.gallery-item {
 }
 
 .lb-content {
-  max-width: 90vw;
-  max-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 80vw;
+  max-height: 75vh;
 }
 
 .lb-content img,
@@ -156,29 +157,31 @@ video.gallery-item {
 ========================= */
 @media (max-width: 768px) {
 
+  /* MISMO nº de columnas que desktop */
   .home-footer-track {
-    grid-template-columns: repeat(6, 1fr); /* MISMO nº de columnas */
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
   }
 
+  .lb-content {
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+
+  /* Botones más abajo */
   .lb-prev,
   .lb-next {
     top: auto;
-    bottom: 40px; /* SUBIMOS botones */
+    bottom: 25vh;
     transform: none;
   }
 
   .lb-prev {
-    left: 24px;
+    left: 20px;
   }
 
   .lb-next {
-    right: 24px;
-  }
-
-  .lb-content {
-    max-width: 95vw;
-    max-height: 80vh;
+    right: 20px;
   }
 }
 
