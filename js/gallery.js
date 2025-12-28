@@ -1,54 +1,89 @@
-(() => {
-
+(function () {
+  const gallery = document.querySelector(".custom-gallery");
   const lightbox = document.querySelector(".custom-lightbox");
-  const lbImg = lightbox.querySelector("img");
-  const prev = lightbox.querySelector(".lb-prev");
-  const next = lightbox.querySelector(".lb-next");
-  const close = lightbox.querySelector(".lb-close");
 
-  let images = [];
+  if (!gallery || !lightbox) return;
+
+  const prevBtn = lightbox.querySelector(".lb-prev");
+  const nextBtn = lightbox.querySelector(".lb-next");
+  const closeBtn = lightbox.querySelector(".lb-close");
+
+  const items = Array.from(gallery.querySelectorAll(".gallery-item"));
   let index = 0;
 
-  function showImage() {
-    lbImg.src = images[index].src.replace("w_800", "w_2400");
+  function clearLightbox() {
+    lightbox.querySelectorAll(".media-wrapper").forEach(el => el.remove());
   }
 
-  document.addEventListener("click", e => {
-    const img = e.target.closest(".custom-gallery img");
-    if (!img) return;
+  function render() {
+    clearLightbox();
 
-    images = [...img.closest(".custom-gallery").querySelectorAll("img")];
-    index = images.indexOf(img);
+    const wrapper = document.createElement("div");
+    wrapper.className = "media-wrapper";
+    lightbox.appendChild(wrapper);
 
+    const item = items[index];
+    let media;
+
+    if (item.tagName === "VIDEO") {
+      media = document.createElement("video");
+      media.src = item.dataset.full || item.src;
+      media.muted = true;
+      media.loop = true;
+      media.autoplay = true;
+      media.playsInline = true;
+      media.preload = "auto";
+    } else {
+      media = document.createElement("img");
+      media.src = item.src;
+    }
+
+    wrapper.appendChild(media);
+  }
+
+  function open(i) {
+    index = i;
     lightbox.hidden = false;
-    showImage();
+    render();
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    clearLightbox();
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener("click", () => open(i));
   });
 
-  next.onclick = e => {
+  nextBtn.onclick = e => {
     e.stopPropagation();
-    index = (index + 1) % images.length;
-    showImage();
+    index = (index + 1) % items.length;
+    render();
   };
 
-  prev.onclick = e => {
+  prevBtn.onclick = e => {
     e.stopPropagation();
-    index = (index - 1 + images.length) % images.length;
-    showImage();
+    index = (index - 1 + items.length) % items.length;
+    render();
   };
 
-  close.onclick = () => {
-    lightbox.hidden = true;
-    lbImg.src = "";
+  closeBtn.onclick = e => {
+    e.stopPropagation();
+    close();
   };
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && !lightbox.hidden) {
-      close.click();
+    if (lightbox.hidden) return;
+
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") {
+      index = (index + 1) % items.length;
+      render();
+    }
+    if (e.key === "ArrowLeft") {
+      index = (index - 1 + items.length) % items.length;
+      render();
     }
   });
-
-  // Año automático
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
 })();
