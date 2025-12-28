@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -25,6 +26,12 @@ body {
 
   /* espacio real para galería + footer */
   padding-bottom: 190px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  cursor: crosshair;
 }
 
 a {
@@ -34,6 +41,7 @@ a {
 
 a:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 /* ================================
@@ -117,7 +125,7 @@ a:hover {
 
 .home-footer-track {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
+  grid-template-columns: repeat(20, 1fr);
   gap: 0.4rem;
   padding: 0.4rem;
 }
@@ -128,15 +136,23 @@ a:hover {
   }
 }
 
-.home-footer-track img {
+/* Imágenes y vídeos pequeños */
+.home-footer-track img,
+.home-footer-track video {
   width: 100%;
   display: block;
   filter: grayscale(100%);
   cursor: pointer;
 }
 
-.home-footer-track img:hover {
+.home-footer-track img:hover,
+.home-footer-track video:hover {
   filter: none;
+}
+
+/* Evitar controles de vídeo en miniaturas */
+.home-footer-track video {
+  pointer-events: auto;
 }
 
 /* ================================
@@ -145,7 +161,7 @@ a:hover {
 
 .site-footer {
   padding: 0.4rem;
-  margin-top: 0.4rem; /* mismo espacio que el resto de la web */
+  margin-top: 0.4rem;
   font-size: 13px;
 }
 
@@ -168,11 +184,52 @@ a:hover {
   display: none;
 }
 
-.custom-lightbox img {
+/* Marco fijo del contenido */
+.custom-lightbox .media-wrapper {
+  width: 80vw;
+  height: 80vh;
   max-width: 80vw;
   max-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen y vídeo grandes */
+.custom-lightbox img,
+.custom-lightbox video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
+
+/* ================================
+   LIGHTBOX — TÍTULO
+================================ */
+
+.lb-title {
+  position: fixed;
+  top: 0.4rem;
+  left: 0.4rem;
+  z-index: 10000;
+
+  font-family: 'Times', 'Times New Roman', serif;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+
+  color: #ffffff;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ================================
+   NAVEGACIÓN LIGHTBOX
+================================ */
 
 .lb-prev,
 .lb-next,
@@ -202,34 +259,26 @@ a:hover {
   right: 0.4rem;
 }
 
-/* Evitar selección */
-.custom-lightbox,
-.custom-lightbox * {
-  user-select: none;
-}
-
-/* =================================
-   CURSOR — comportamiento tipo Cargo
-================================= */
-
-/* Cursor por defecto en toda la web */
-html,
-body {
-  cursor: crosshair;
-}
+/* ================================
+   CURSORES
+================================ */
 
 /* Elementos clicables → manita */
-a,
 button,
-.custom-gallery img,
+.gallery-item,
 .home-footer-track img,
+.home-footer-track video,
 .lb-prev,
 .lb-next,
 .lb-close {
   cursor: pointer;
 }
 
-/* Evitar selección dentro del lightbox */
+/* ================================
+   SEGURIDAD VISUAL
+================================ */
+
+/* Evitar selección */
 .custom-lightbox,
 .custom-lightbox * {
   user-select: none;
@@ -237,8 +286,3 @@ button,
   -ms-user-select: none;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
