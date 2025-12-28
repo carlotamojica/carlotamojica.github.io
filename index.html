@@ -1,15 +1,98 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Carlota Mojica</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- Home (contenido irá aquí) -->
+  <!-- HEADER -->
+  <header class="site-header">
+    <h1>Carlota Mojica</h1>
+  </header>
 
+  <!-- CONTENIDO -->
+  <main class="site-content">
+    <div class="home-grid">
+
+      <div class="home-text">
+        <p>
+          Graphic and visual designer based in Málaga (Spain). My multidisciplinary work focuses mainly on art direction, brand identity development, editorial design and web design for artists, companies, organizations, collectives and individuals.
+        </p>
+
+        <p>
+          I’m currently part of the team at
+          <a href="https://www.brida.es/" target="_blank">bRIDA</a>,
+          a brand strategy and design studio based in Málaga.
+        </p>
+
+        <p>
+          I also occasionally take on freelance commissions that allow for a more personal and exploratory approach to design.
+        </p>
+
+        <p>
+          For collaborations or inquiries, feel free to reach out at
+          <a href="mailto:info@carlotamojica.work">info@carlotamojica.work</a>
+        </p>
+
+        <p>
+          <a href="https://www.instagram.com/carlota.mojica" target="_blank">Instagram</a>,
+          <a href="https://www.are.na/carlota-mojica" target="_blank">Are.na</a>,
+          <a href="https://www.linkedin.com/in/carlota-mojica/" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+
+      <div class="home-empty"></div>
+
+    </div>
+  </main>
+
+  <!-- BLOQUE INFERIOR FIJO -->
+  <div class="site-bottom">
+
+    <!-- GALERÍA -->
+    <div class="home-footer-gallery">
+      <div class="custom-gallery home-footer-track">
+
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_01_LOW-scaled_tb06lo.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_02_LOW-scaled_iu2o1j.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_03_LOW-scaled_yyft5x.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_04_LOW-scaled_cgp5zj.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_05_LOW-scaled_qrvfpn.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_06_LOW-scaled_udbcuo.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_07_LOW-scaled_mortft.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_09_LOW-scaled_lsqr8a.jpg" alt="">
+        <img src="https://res.cloudinary.com/dudqbkshm/image/upload/w_800/CORTIJO_FOLLETO_10_LOW-scaled_xgg347.jpg" alt="">
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      © <span id="year"></span>
+    </footer>
+
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="custom-lightbox" hidden>
+    <img alt="">
+    <div class="lb-prev">Previous</div>
+    <div class="lb-next">Next</div>
+    <div class="lb-close">Close</div>
+  </div>
+
+  <!-- JS -->
   <script src="js/gallery.js"></script>
+
+  <!-- Año automático -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
