@@ -41,11 +41,16 @@ a:visited {
 
 /* GALERÍA FIJA ABAJO */
 .gallery {
-  position: fixed;
-  bottom: 1.6rem;
-  left: 0;
   width: 100%;
-  padding: 0 0.4rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  margin-top: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .custom-gallery {
@@ -159,4 +164,47 @@ a:visited {
 .lb-close {
   top: 0.4rem;
   right: 0.4rem;
+}
+
+/* =========================================
+   GALERÍA FIJA SOLO EN DESKTOP
+========================================= */
+
+@media (min-width: 769px) {
+
+  .gallery {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 1.6rem;
+
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+
+    z-index: 10;
+    background: #ffffff;
+  }
+
+  /* Reservar espacio para que no pise el texto */
+  main {
+    padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+/* =========================
+   FONT RENDERING FIX
+   (igualar a Cargo)
+========================= */
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

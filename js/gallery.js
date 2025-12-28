@@ -42,3 +42,23 @@
     }
   });
 })();
+
+document.addEventListener("keydown", (e) => {
+  const lightbox = document.querySelector(".custom-lightbox");
+  if (!lightbox || lightbox.hasAttribute("hidden")) return;
+
+  if (e.key === "ArrowRight") {
+    e.preventDefault();
+    document.querySelector(".lb-next")?.click();
+  }
+
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    document.querySelector(".lb-prev")?.click();
+  }
+
+  if (e.key === "Escape") {
+    e.preventDefault();
+    document.querySelector(".lb-close")?.click();
+  }
+});
