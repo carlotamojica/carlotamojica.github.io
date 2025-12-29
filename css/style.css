@@ -10,7 +10,7 @@ body {
   cursor: crosshair;
 }
 
-/* LINKS (NO AZULES) */
+/* LINKS */
 a {
   color: #000;
   text-decoration: underline;
@@ -28,7 +28,7 @@ a:visited {
   padding: 0.4rem;
 }
 
-/* TEXTO */
+/* TEXT */
 .site-content {
   padding: 0.4rem 0.4rem 0 0.4rem;
   max-width: 45rem;
@@ -38,7 +38,7 @@ a:visited {
   margin: 0 0 0.8rem 0;
 }
 
-/* GALERÍA FIJA ABAJO */
+/* GALLERY FIXED */
 .gallery {
   width: 100%;
   padding-left: 0.4rem;
@@ -74,7 +74,7 @@ a:visited {
   user-select: none;
 }
 
-/* Hover SOLO desktop */
+/* HOVER */
 @media (hover: hover) and (pointer: fine) {
   .gallery-item:hover {
     filter: none;
@@ -132,7 +132,7 @@ a:visited {
   object-fit: contain;
 }
 
-/* CONTROLES */
+/* CONTROLS */
 .lb-prev,
 .lb-next,
 .lb-close {
@@ -160,7 +160,7 @@ a:visited {
 }
 
 /* =========================================
-   GALERÍA FIJA SOLO EN DESKTOP
+   DESKTOP (GALLERY FIXED)
 ========================================= */
 
 @media (min-width: 769px) {
@@ -192,8 +192,7 @@ a:visited {
 }
 
 /* =========================
-   FONT RENDERING FIX
-   (igualar a Cargo)
+   FONT RENDERING
 ========================= */
 
 html, body {
@@ -203,28 +202,28 @@ html, body {
 }
 
 /* =========================
-   PLACEHOLDER DE CARGA
+   PLACEHOLDER FOR GALLERY ITEMS
 ========================= */
 
 .gallery-item {
   background: #e5e5e5;   /* gris suave */
 }
 
-/* imágenes */
+/* images */
 .gallery-item img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* vídeos */
+/* videos */
 .gallery-item video {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* evitar flashes */
+/* without flashes */
 .gallery-item {
   overflow: hidden;
 }
@@ -235,10 +234,10 @@ html, body {
   font-size: 13px;
 }
 
-/* ESPACIO PARA GALERÍA FIJA (DESKTOP) */
+/* GALLERY HEIGHT */
 @media (min-width: 769px) {
   .gallery-spacer {
-    height: 9rem; /* ajusta a la altura real de la galería */
+    height: 9rem; /* altura galería */
   }
 }
 
@@ -253,7 +252,6 @@ html, body {
   }
 }
 
-/* En móvil no hace falta */
 @media (max-width: 768px) {
   .site-footer {
     position: static !important;
@@ -269,13 +267,13 @@ html, body {
     padding: 1rem;
   }
 
-  /* Imagen centrada */
+  /* Center image */
   .custom-lightbox img {
     max-width: 97vw;
     max-height: 70vh;
   }
 
-  /* Botones más abajo */
+  /* Navigation */
   .lb-prev,
   .lb-next {
     top: auto;                 /* anulamos el 52% */
@@ -306,7 +304,7 @@ html, body {
 }
 
 /* =========================
-   FIX SAFARI – imágenes invisibles
+   FIX SAFARI 
 ========================= */
 
 @supports (-webkit-touch-callout: none) {

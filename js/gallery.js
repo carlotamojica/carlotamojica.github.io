@@ -21,7 +21,7 @@ function render() {
     video.playsInline = true;
     video.controls = false;
 
-    // 👉 click en vídeo = siguiente
+    // clic video = next
     video.addEventListener("click", (e) => {
       e.stopPropagation();
       next.click();
@@ -33,7 +33,7 @@ function render() {
     const img = document.createElement("img");
     img.src = item.src;
 
-    // 👉 click en imagen = siguiente
+    // clic image = next
     img.addEventListener("click", (e) => {
       e.stopPropagation();
       next.click();
