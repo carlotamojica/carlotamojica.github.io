@@ -122,13 +122,10 @@ a:visited {
 .custom-lightbox img,
 .custom-lightbox video {
   display: block;
-
   max-width: calc(100vw - 4rem);
   max-height: calc(100vh - 4rem);
-
   width: auto;
   height: auto;
-
   object-fit: contain;
 }
 
@@ -177,6 +174,15 @@ a:visited {
     z-index: 10;
     background: #ffffff;
   }
+
+  @media (max-width: 768px) {
+  .custom-lightbox img,
+  .custom-lightbox video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
 
   body {
     padding-bottom: 10rem;
