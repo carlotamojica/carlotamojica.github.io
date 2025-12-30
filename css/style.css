@@ -84,6 +84,10 @@ a:visited {
 
 /* LIGHTBOX */
 .custom-lightbox {
+  --lb-margin: 0.4rem;
+}
+
+.custom-lightbox {
   position: fixed;
   inset: 0;
   background: #000;
@@ -121,10 +125,9 @@ a:visited {
 
 .custom-lightbox img,
 .custom-lightbox video {
-  display: block;
-  max-width: calc(100vw - 4rem);
-  max-height: calc(100vh - 4rem);
-  width: auto;
+  max-width: calc(100vw - (var(--lb-margin) * 2));
+  max-height: calc(100vh - (var(--lb-margin) * 2));
+  width: 100%;
   height: auto;
   object-fit: contain;
 }
