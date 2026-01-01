@@ -10,6 +10,11 @@ body {
   cursor: crosshair;
 }
 
+html,
+body {
+  cursor: crosshair;
+}
+
 /* LINKS */
 a {
   color: #000;
@@ -70,8 +75,8 @@ a:visited {
   display: block;
   filter: grayscale(100%);
   mix-blend-mode: darken;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 }
 
 /* HOVER */
@@ -316,25 +321,4 @@ html, body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-}
-
-/* =========================
-   FIX SAFARI 
-========================= */
-
-@supports (-webkit-touch-callout: none) {
-  .gallery-item {
-    mix-blend-mode: normal !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .custom-lightbox img,
-  .custom-lightbox video {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 70vh;
-    object-fit: contain;
-  }
 }
