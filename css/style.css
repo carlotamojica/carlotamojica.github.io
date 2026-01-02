@@ -281,17 +281,17 @@ html, body {
 }
 
 @media (max-width: 768px) {
+
+  /* LIGHTBOX */
   .custom-lightbox {
-    --lb-margin: 0.4rem;
-    padding: var(--lb-margin);
+    padding: 1rem;
   }
 
-  .custom-lightbox img,
-  .custom-lightbox video {
-    max-width: calc(100vw - (var(--lb-margin) * 2));
-    max-height: calc(100vh - (var(--lb-margin) * 2));
+  /* Center image */
+  .custom-lightbox img {
+    max-width: 97vw;
+    max-height: 70vh;
   }
-}
 
   /* Navigation */
   .lb-prev,
@@ -351,4 +351,110 @@ a::after {
   35%  { opacity: 0; }
   55%  { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* =========================
+   LIGHTBOX — BASE
+========================= */
+
+.custom-lightbox {
+  --lb-margin: 0.4rem;
+
+  position: fixed;
+  inset: 0;
+  background: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--lb-margin);
+  box-sizing: border-box;
+
+  z-index: 999;
+}
+
+.custom-lightbox[hidden] {
+  display: none;
+}
+
+/* Imagen y vídeo */
+.custom-lightbox img,
+.custom-lightbox video {
+  max-width: calc(100vw - (var(--lb-margin) * 2));
+  max-height: calc(100vh - (var(--lb-margin) * 2));
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================
+   CONTROLS — BASE
+========================= */
+
+.lb-prev,
+.lb-next,
+.lb-close {
+  position: fixed;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Close */
+.lb-close {
+  top: var(--lb-margin);
+  right: var(--lb-margin);
+}
+
+/* =========================
+   DESKTOP (>= 769px)
+========================= */
+
+@media (min-width: 769px) {
+
+  /* Botones alejados del margen (como antes) */
+  .lb-prev {
+    left: 10vw;
+    top: 52%;
+  }
+
+  .lb-next {
+    right: 10vw;
+    top: 52%;
+  }
+}
+
+/* =========================
+   MÓVIL (<= 768px)
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Un poco más de aire si quieres */
+  .custom-lightbox {
+    --lb-margin: 0.4rem;
+  }
+
+  /* Imagen / vídeo siguen el margen */
+  .custom-lightbox img,
+  .custom-lightbox video {
+    max-width: calc(100vw - (var(--lb-margin) * 2));
+    max-height: calc(100vh - (var(--lb-margin) * 2));
+  }
+
+  /* Botones alineados al margen */
+  .lb-prev {
+    left: var(--lb-margin);
+    bottom: 3rem;
+    top: auto;
+  }
+
+  .lb-next {
+    right: var(--lb-margin);
+    bottom: 3rem;
+    top: auto;
+  }
 }
